@@ -1,0 +1,22 @@
+  <div class="row result-entry">
+    <div class="esult-entry__title">
+      <a href="" ng-click="$ctrl.redirectToQuestion($ctrl.entry.question_id)">{{$ctrl.entry.title}}</a>
+    </div>
+
+    <div class="result-entry-tags">
+      <span ng-click="$ctrl.redirectToQuestion($ctrl.entry.question_id)" class="label label-success result-entry-tags__tag">
+        Ответов: {{$ctrl.entry.answer_count}}
+      </span>
+
+      <span ng-click="$ctrl.clickByTag(tag)" class="label label-info result-entry-tags__tag" ng-repeat="tag in $ctrl.entry.tags">
+        {{tag}}
+      </span>
+    </div>
+
+    <span class="result-entry__author">
+      <span>Автор: </span>
+      <a href="" ng-click="$ctrl.clickByAuthor($ctrl.entry.owner)" class="result-entry-author__name">
+        {{$ctrl.entry.owner.display_name}}
+      </a>
+    </span>
+  </div>

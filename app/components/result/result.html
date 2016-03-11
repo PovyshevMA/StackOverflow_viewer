@@ -1,0 +1,19 @@
+<div ng-controller="ResultController as ctrl">
+    <result-entry-list class="{{!!ctrl.additionalResult ? 'col-md-4 col-md-offset-1' : 'col-md-6 col-md-offset-3'}}"
+                       click-by-tag="ctrl.detailsByTag"
+                       click-by-author="ctrl.detailsByAuthor"
+                       redirect-to-question="ctrl.redirectToQuestion"
+                       get-result-by-page-number="ctrl.getResultByPageNumber"
+                       sort-results="ctrl.sortResults"
+                       search-result="ctrl.searchResult"></result-entry-list>
+
+    <result-entry-list ng-show="ctrl.additionalResult" class="col-md-4 col-md-offset-2"
+                       class="{{!!ctrl.additionalResult ? 'col-md-4 col-md-offset-1' : 'col-md-6 col-md-offset-3'}}"
+                       click-by-tag="ctrl.detailsByTag"
+                       click-by-author="ctrl.detailsByAuthor"
+                       redirect-to-question="ctrl.redirectToQuestion"
+                       get-result-by-page-number="ctrl.getResultByPageNumber"
+                       sort-results="ctrl.sortResults"
+                       search-result="ctrl.additionalResult"></result-entry-list>
+
+</div>

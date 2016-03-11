@@ -1,0 +1,62 @@
+{
+  "items": [
+    {
+      "owner": {
+        "reputation": 1166,
+        "user_id": 611628,
+        "user_type": "registered",
+        "profile_image": "https://i.stack.imgur.com/PV6er.jpg?s=128&g=1",
+        "display_name": "Thulani Chivandikwa",
+        "link": "http://stackoverflow.com/users/611628/thulani-chivandikwa"
+      },
+      "is_accepted": false,
+      "score": 1,
+      "last_activity_date": 1439886702,
+      "creation_date": 1439886702,
+      "answer_id": 32067380,
+      "question_id": 7807066,
+      "body_markdown": "I would highly recommend you take a look at this on Channel 9 video as it gives a great overview.\r\n\r\n[SignalR: Building real time application with ASP.NEt][1]\r\n\r\n\r\nI you would like to get into the details I also highly recommend this [book][2]. SignalR is one of those technologies that are so greatly designed it requires very minimal time to skill up and be up and running.\r\n\r\n\r\n  [1]: https://channel9.msdn.com/Events/TechEd/NorthAmerica/2014/DEV-B416\r\n  [2]: https://www.packtpub.com/web-development/signalr-real-time-application-cookbook",
+      "body": "<p>I would highly recommend you take a look at this on Channel 9 video as it gives a great overview.</p>\n\n<p><a href=\"https://channel9.msdn.com/Events/TechEd/NorthAmerica/2014/DEV-B416\" rel=\"nofollow\">SignalR: Building real time application with ASP.NEt</a></p>\n\n<p>I you would like to get into the details I also highly recommend this <a href=\"https://www.packtpub.com/web-development/signalr-real-time-application-cookbook\" rel=\"nofollow\">book</a>. SignalR is one of those technologies that are so greatly designed it requires very minimal time to skill up and be up and running.</p>\n"
+    },
+    {
+      "owner": {
+        "reputation": 3,
+        "user_id": 3940446,
+        "user_type": "registered",
+        "profile_image": "https://i.stack.imgur.com/v2B8F.jpg?s=128&g=1",
+        "display_name": "Ali Fakhari",
+        "link": "http://stackoverflow.com/users/3940446/ali-fakhari"
+      },
+      "is_accepted": false,
+      "score": 0,
+      "last_activity_date": 1429086728,
+      "creation_date": 1429086728,
+      "answer_id": 29645347,
+      "question_id": 7807066,
+      "body_markdown": "I seriously recommend you to read the first chapter of Microsoft Press book:\r\n&quot;**SignalR Programming in Microsoft ASP.Net**&quot; by &quot;**Jose M.Agular**&quot;\r\n\r\nthat will clear your mind about signalR persistent connection technologies by describing four above mentioned methods: *WebSockets*,*Server Sent Events*, *Forever Frame*, *Long polling*\r\n\r\n",
+      "body": "<p>I seriously recommend you to read the first chapter of Microsoft Press book:\n\"<strong>SignalR Programming in Microsoft ASP.Net</strong>\" by \"<strong>Jose M.Agular</strong>\"</p>\n\n<p>that will clear your mind about signalR persistent connection technologies by describing four above mentioned methods: <em>WebSockets</em>,<em>Server Sent Events</em>, <em>Forever Frame</em>, <em>Long polling</em></p>\n"
+    },
+    {
+      "owner": {
+        "reputation": 22632,
+        "user_id": 45091,
+        "user_type": "registered",
+        "profile_image": "https://www.gravatar.com/avatar/9d6161f7a9eaf37fa9df33b656d870b7?s=128&d=identicon&r=PG",
+        "display_name": "davidfowl",
+        "link": "http://stackoverflow.com/users/45091/davidfowl"
+      },
+      "is_accepted": true,
+      "score": 173,
+      "last_activity_date": 1357648189,
+      "last_edit_date": 1357648189,
+      "creation_date": 1319452641,
+      "answer_id": 7874352,
+      "question_id": 7807066,
+      "body_markdown": "No, SignalR is an abstraction over a connection. It gives you two programming models over that connection (hubs and persistent connections). SignalR has a concept of transports, each transport decides how data is sent/received and how it connects and disconnects.\r\n\r\nSignalR has a few built in transports:\r\n\r\n 1. WebSockets\r\n 1. Server Sent Events\r\n 2. Forever Frame\r\n 3. Long polling\r\n\r\nSignalR tries to choose the &quot;best&quot; connection supported by server and client (you can also force it to use a specific transport). \r\n\r\nThat&#39;s the high level. If you want to see how each transport is implemented, you can look at the [source code][1].\r\n\r\nThere&#39;s also client code for each transport:\r\nhttps://github.com/SignalR/SignalR/tree/master/src/Microsoft.AspNet.SignalR.Client.JS\r\n\r\nIf you&#39;re asking about how the long polling transport works in particular:\r\n\r\nIt sends an ajax request to the server that&#39;s waiting asynchronously for a signal to respond. When there is a signal or the request times out, it returns from the server and sends another request and the process continues. (I left some details out about how the client it keeps track of what it saw so it doesn&#39;t miss messages)\r\n\r\nHopefully that answers most of your question.\r\n\r\n\r\n  [1]: https://github.com/SignalR/SignalR/tree/master/src/Microsoft.AspNet.SignalR.Core/Transports",
+      "body": "<p>No, SignalR is an abstraction over a connection. It gives you two programming models over that connection (hubs and persistent connections). SignalR has a concept of transports, each transport decides how data is sent/received and how it connects and disconnects.</p>\n\n<p>SignalR has a few built in transports:</p>\n\n<ol>\n<li>WebSockets</li>\n<li>Server Sent Events</li>\n<li>Forever Frame</li>\n<li>Long polling</li>\n</ol>\n\n<p>SignalR tries to choose the \"best\" connection supported by server and client (you can also force it to use a specific transport). </p>\n\n<p>That's the high level. If you want to see how each transport is implemented, you can look at the <a href=\"https://github.com/SignalR/SignalR/tree/master/src/Microsoft.AspNet.SignalR.Core/Transports\">source code</a>.</p>\n\n<p>There's also client code for each transport:\n<a href=\"https://github.com/SignalR/SignalR/tree/master/src/Microsoft.AspNet.SignalR.Client.JS\">https://github.com/SignalR/SignalR/tree/master/src/Microsoft.AspNet.SignalR.Client.JS</a></p>\n\n<p>If you're asking about how the long polling transport works in particular:</p>\n\n<p>It sends an ajax request to the server that's waiting asynchronously for a signal to respond. When there is a signal or the request times out, it returns from the server and sends another request and the process continues. (I left some details out about how the client it keeps track of what it saw so it doesn't miss messages)</p>\n\n<p>Hopefully that answers most of your question.</p>\n"
+    }
+  ],
+  "has_more": false,
+  "quota_max": 10000,
+  "quota_remaining": 9657
+}

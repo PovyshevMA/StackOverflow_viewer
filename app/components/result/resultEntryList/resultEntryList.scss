@@ -1,0 +1,25 @@
+.navigate-buttons{
+  margin: 10px 0px;
+  display: inline-block;
+
+  &__button{
+    cursor: pointer;
+    margin-right: 15px;
+    float: left;
+  }
+
+  &__page{
+    cursor: pointer;
+    float: left;
+    margin-right: 15px;
+  }
+}
+
+.sorting-panel{
+  &__item{
+    float: left;
+    width: auto !important;
+    margin-right: 10px;
+  }
+}
+

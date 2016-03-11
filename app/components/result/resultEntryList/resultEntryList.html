@@ -1,0 +1,57 @@
+<div>
+  <h3 ng-show="$ctrl.searchResult" class="row">
+    Результаты по запросу {{$ctrl.searchResult.title}}
+  </h3>
+
+  <ul class="dropdown-menu">
+    <li ng-repeat="choice in choices"
+        ng-click="setChoiceIndex($index);$parent.open =!$parent.open">
+      <a href="#">{{choice}}</a></li>
+  </ul>
+  <div ng-show="$ctrl.searchResult.isSuccess" class="row sorting-panel">
+    <select ng-model="sortDirection" ng-change="$ctrl.sortResults(sortOrder, sortDirection, $ctrl.searchResult)"  class="form-control input-sm sorting-panel__item"
+            ng-options="item.value as item.name for item in $ctrl.sortDirectionItems"></select>
+    <select ng-model="sortOrder" ng-change="$ctrl.sortResults(sortOrder, sortDirection, $ctrl.searchResult)" class="form-control input-sm sorting-panel__item"
+            ng-options="item.value as item.name for item in $ctrl.sortOrderItems"></select>
+  </div>
+
+  <div ng-hide="!$ctrl.searchResult || $ctrl.searchResult.entrys.length" class="row alert alert-info">
+    {{$ctrl.searchResult.isSuccess
+    ? "Поиск не вернул результатов, попробуйте изменить запрос и выполнить поиск заного."
+    : $ctrl.searchResult.message
+    }}
+  </div>
+
+  <result-entry ng-animate="'animate'"
+                ng-repeat="entry in $ctrl.searchResult.entrys"
+                click-by-tag="$ctrl.clickByTag"
+                click-by-author="$ctrl.clickByAuthor"
+                redirect-to-question="$ctrl.redirectToQuestion"
+                entry="entry">
+
+  </result-entry>
+
+  <div ng-show="$ctrl.searchResult.isSuccess && !$ctrl.searchResult.isLastPage" class="row btn-group navigate-buttons btn-group-sm">
+    <hbutton ng-click="$ctrl.getResultByPageNumber(1, $ctrl.searchResult)" ng-show="$ctrl.searchResult.currentPage > 1" class="btn btn-default">
+      В начало
+    </hbutton>
+    <button ng-click="$ctrl.getResultByPageNumber($ctrl.searchResult.currentPage - 4, $ctrl.searchResult)" ng-show="$ctrl.searchResult.currentPage  - 4 > 0" class="btn btn-default">
+      {{$ctrl.searchResult.currentPage - 4}}
+    </button>
+    <button ng-click="$ctrl.getResultByPageNumber($ctrl.searchResult.currentPage - 3, $ctrl.searchResult)" ng-show="$ctrl.searchResult.currentPage  - 3 > 0" class="btn btn-default">
+      {{$ctrl.searchResult.currentPage - 3}}
+    </button>
+    <button ng-click="$ctrl.getResultByPageNumber($ctrl.searchResult.currentPage - 2, $ctrl.searchResult)" ng-show="$ctrl.searchResult.currentPage - 2 > 0" class="btn btn-default">
+      {{$ctrl.searchResult.currentPage - 2}}
+    </button>
+    <button ng-click="$ctrl.getResultByPageNumber($ctrl.searchResult.currentPage - 1, $ctrl.searchResult)" ng-show="$ctrl.searchResult.currentPage - 1 > 0" class="btn btn-default">
+      {{$ctrl.searchResult.currentPage - 1}}
+    </button>
+    <button class="btn btn-default" disabled>
+      {{$ctrl.searchResult.currentPage}}
+    </button>
+    <button ng-click="$ctrl.getResultByPageNumber($ctrl.searchResult.currentPage + 1, $ctrl.searchResult)" ng-hide="$ctrl.searchResult.isLastPage" class="btn btn-default">
+      дальше
+    </button>
+  </div>
+</div>

@@ -1,0 +1,32 @@
+{
+  "items": [
+    {
+      "tags": [
+        "signalr"
+      ],
+      "owner": {
+        "reputation": 6934,
+        "user_id": 960567,
+        "user_type": "registered",
+        "accept_rate": 79,
+        "profile_image": "https://www.gravatar.com/avatar/d95e231d783a218eba22a6bd04652255?s=128&d=identicon&r=PG",
+        "display_name": "user960567",
+        "link": "http://stackoverflow.com/users/960567/user960567"
+      },
+      "is_answered": true,
+      "view_count": 19731,
+      "accepted_answer_id": 7874352,
+      "answer_count": 3,
+      "score": 112,
+      "last_activity_date": 1439886702,
+      "creation_date": 1318940205,
+      "question_id": 7807066,
+      "link": "http://stackoverflow.com/questions/7807066/how-signalr-works-internally",
+      "title": "How SignalR works internally?",
+      "body": "<p>Can anyone let me know that how SignalR works internally in a high level way?</p>\n\n<p>I am guessing it is flushing the data using Response.Flush and at client side it is sending ajax requests at certain intervals. Is it correct?</p>\n"
+    }
+  ],
+  "has_more": false,
+  "quota_max": 10000,
+  "quota_remaining": 9666
+}

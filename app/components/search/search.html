@@ -1,0 +1,8 @@
+<form name="searchForm" class="container search-container" ng-controller="SearchController as searchCtrl" novalidate>
+  <div class="input-group row col-md-8 col-md-offset-2">
+    <input type="text" class="search-form-query form-control input-lg" ng-model="query" required placeholder="Поиск по тексту вопроса">
+    <span class="input-group-btn">
+      <button ng-disabled="!searchForm.$valid" type="submit" class="btn btn-lg btn-default" ng-click="searchCtrl.execute(query)">Искать</button>
+    </span>
+  </div>
+</form>

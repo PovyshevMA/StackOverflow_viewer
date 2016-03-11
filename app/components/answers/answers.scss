@@ -1,0 +1,26 @@
+.answer-container{
+  margin-top: 10px;
+
+  &__title, &__answers-separator{
+    border-bottom: 1px solid #eaebec;
+    padding-bottom: 10px;
+  }
+
+  &__answer{
+    padding: 10px 0px;
+    border-bottom: 1px solid #eaebec;
+  }
+}
+
+.answer{
+  &__owner{
+    float: right;
+  }
+}
+
+.answer-owner{
+  &__image{
+    width: 32px;
+    height: 32px;
+  }
+}

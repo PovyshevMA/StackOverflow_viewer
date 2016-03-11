@@ -1,0 +1,44 @@
+<div class="container col-md-6 col-md-offset-3 answer-container" ng-controller="AnswersController as ctrl">
+  <div class="row alert alert-info" ng-hide="!ctrl.question || ctrl.question.isSuccess">
+    {{ctrl.question.message}}
+  </div>
+
+  <h3 ng-show="ctrl.question" class="row answer-container__title">
+    {{ctrl.question.info.title}}
+  </h3>
+
+  <div  ng-show="ctrl.question" class="row answer-container__question">
+    <h3 class="col-md-1">
+      {{ctrl.question.info.score}}
+    </h3>
+
+    <div class="col-md-11" ng-bind-html="ctrl.parseHtmlBody(ctrl.question.info.body)"></div>
+  </div>
+
+  <h3 ng-show="ctrl.question" class="row answer-container__answers-separator">
+    Ответов: {{ctrl.question.info.answer_count}}
+  </h3>
+
+  <div class="row alert alert-info" ng-hide="!ctrl.answers || ctrl.answers.isSuccess">
+    {{ctrl.answers.message}}
+  </div>
+
+  <div  ng-show="ctrl.answers" class="row answer-container__answer" ng-repeat="answer in ctrl.answers.info.items">
+    <div class="answer">
+      <h3 class="col-md-1">
+        {{answer.score}}
+      </h3>
+
+      <div class="col-md-11"  ng-bind-html="ctrl.parseHtmlBody(answer.body)"></div>
+
+      <div class="answer__owner">
+        <div class="answer-owner">
+          <img class="answer-owner__image" src={{answer.owner.profile_image}}>
+          <span>
+            {{answer.owner.display_name}}
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
