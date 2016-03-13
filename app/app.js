@@ -18,7 +18,7 @@
   }])
 
   .factory('searchService', ['$http', '$q', function($http, $q){
-    var _executeSearch = function (query, tag, user, pageNumber, sortDirection, sortBy) {
+    var _executeSearch = function (urlPostfix, query, tag, user, filter, pageNumber, sortDirection, sortBy) {
       var deferred = $q.defer();
       var params = {
         page: pageNumber || 1,
@@ -37,11 +37,14 @@
       if (tag)
         params.tagged = tag;
 
-            $http.get('http://api.stackexchange.com/2.2/search/advanced', {params : params}).success(function(data) {
-       deferred.resolve(data);
-       }).error(function(message){
-       deferred.reject(message);
-       });
+      if (filter)
+        params.filter = filter;
+
+      $http.get('http://api.stackexchange.com/2.2/' + urlPostfix, {params : params}).success(function(data) {
+        deferred.resolve(data);
+      }).error(function(message){
+        deferred.reject(message);
+      });
 
 /*      $http.get('data/questions.json').success(function(data) {
         deferred.resolve(data);
@@ -54,15 +57,23 @@
 
     return {
       searchByAuthor: function (searchString, pageNumber, sortDirection, sortBy){
-        return _executeSearch("", "", searchString, pageNumber, sortDirection, sortBy);
+        return _executeSearch("search/advanced", "", "", searchString, "", pageNumber, sortDirection, sortBy);
       },
 
       searchByTag: function (searchString, pageNumber, sortDirection, sortBy){
-        return _executeSearch("", searchString, "", pageNumber, sortDirection, sortBy);
+        return _executeSearch("search/advanced", "", searchString, "","", pageNumber, sortDirection, sortBy);
       },
 
       searchByQuery: function (searchString, pageNumber, sortDirection, sortBy){
-        return _executeSearch(searchString, "", "", pageNumber, sortDirection, sortBy);
+        return _executeSearch("search/advanced", searchString, "", "", "", pageNumber, sortDirection, sortBy);
+      },
+
+      getQuestionById: function (questionId){
+        return _executeSearch('questions/' + questionId, "", "", "", '!-*f(6rc.lFba', 1, 'desc','votes');
+      },
+
+      getAnswersByQuestionId: function (questionId){
+        return _executeSearch('questions/' + questionId + '/answers', "", "", "", '!9YdnSM64y', 1, 'desc','votes');
       }
     };
   }]);
