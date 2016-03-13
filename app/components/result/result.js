@@ -43,7 +43,7 @@
     // Сортировка результатов. Т.к. результатов может быть очень много после сортировки возможны ситуации,
     // когда на предыдущих страницах окажутся результаты которых пользователь еще не видел.
     // Чтобы пользователь ничего не упустил переходим каждый раз на 1 страницу.
-    me.sortResults = function(sortDirection, order, searchResult) {
+    me.sortResults = function(order, sortDirection, searchResult) {
       me.executeSearch(searchResult.title,"", "", 1, sortDirection, order).then(function(data) {
         searchResult.isSuccess = true;
         searchResult.entrys = data.items;
