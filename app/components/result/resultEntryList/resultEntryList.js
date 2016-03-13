@@ -12,9 +12,6 @@
   function ResultEntryListController($scope, searchService) {
     var me = this;
 
-    $scope.sortOrder = 'relevance';
-    $scope.sortDirection = 'desc';
-
     me.sortOrderItems= [
       {name: "По рейтингу", value: 'relevance'},
       {name: 'По количеству голосов', value: 'votes'},
@@ -35,8 +32,8 @@
     // Сортировка результатов. Т.к. результатов может быть очень много после сортировки возможны ситуации,
     // когда на предыдущих страницах окажутся результаты которых пользователь еще не видел.
     // Чтобы пользователь ничего не упустил переходим каждый раз на 1 страницу.
-    me.sortResults = function(order, sortDirection) {
-      me._setData(1, order, sortDirection);
+    me.sortResults = function() {
+      me._setData(1, $scope.sort.order, $scope.sort.direction);
     };
 
     // Обновление данных в таблице.
@@ -45,7 +42,7 @@
 
       switch (me.searchResult.searchTarget.type) {
         case "tag":
-          searchFunction = searchService.searchBytag;
+          searchFunction = searchService.searchByTag;
           break;
         case "author":
           searchFunction = searchService.searchByAuthor;

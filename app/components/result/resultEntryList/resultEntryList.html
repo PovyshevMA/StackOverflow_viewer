@@ -1,10 +1,10 @@
-<div>
+<div ng-init="sort = { direction: 'desc', order: 'relevance' }">
   <h3 ng-show="$ctrl.searchResult" class="row">Результаты по запросу {{$ctrl.searchResult.searchTarget.title}}</h3>
 
   <div ng-show="$ctrl.searchResult.isSuccess" class="row sorting-panel">
-    <select ng-model="sortDirection" ng-change="$ctrl.sortResults(sortOrder, sortDirection, $ctrl.searchResult)"  class="form-control input-sm sorting-panel__item"
+    <select ng-model="sort.direction" ng-change="$ctrl.sortResults()"  class="form-control input-sm sorting-panel__item"
             ng-options="item.value as item.name for item in $ctrl.sortDirectionItems"></select>
-    <select ng-model="sortOrder" ng-change="$ctrl.sortResults(sortOrder, sortDirection, $ctrl.searchResult)" class="form-control input-sm sorting-panel__item"
+    <select ng-model="sort.order" ng-change="$ctrl.sortResults()" class="form-control input-sm sorting-panel__item"
             ng-options="item.value as item.name for item in $ctrl.sortOrderItems"></select>
   </div>
 
