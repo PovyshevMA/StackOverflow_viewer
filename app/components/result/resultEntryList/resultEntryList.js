@@ -17,7 +17,7 @@
     me.sortOrderItems= searchService.sortOrderItems;
 
     // Направления сортировки предоставляемые сервисом.
-    me.sortDirectionItems= searchService.sortOrderItems;
+    me.sortDirectionItems= searchService.sortDirectionItems;
 
     // Пейджинг результатов поиска.
     me.getResultByPageNumber = function(pageNumber) {
