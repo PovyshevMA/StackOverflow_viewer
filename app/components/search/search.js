@@ -1,5 +1,6 @@
   'use strict';
 
+  // Модуль реализующий логику основной поисковой страницы.
   var searchModule = angular.module('app.search', ['ngRoute']);
 
   searchModule.config(['$routeProvider', function($routeProvider) {

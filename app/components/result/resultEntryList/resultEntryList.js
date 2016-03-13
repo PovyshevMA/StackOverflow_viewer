@@ -1,5 +1,6 @@
   'use strict';
 
+  // Компонента реализующая таблицу со списком вопросов.
   angular.module('app.result').component('resultEntryList', {
     templateUrl: 'components/result/resultEntryList/resultEntryList.html',
     controller: ResultEntryListController,
@@ -12,17 +13,11 @@
   function ResultEntryListController($scope, searchService) {
     var me = this;
 
-    me.sortOrderItems= [
-      {name: "По рейтингу", value: 'relevance'},
-      {name: 'По количеству голосов', value: 'votes'},
-      {name: 'По дате создания', value: 'creation'},
-      {name: 'По количеству просмотров', value: 'activity'}
-    ];
+    // Варианты сортировки предоставляемые сервисом.
+    me.sortOrderItems= searchService.sortOrderItems;
 
-    me.sortDirectionItems= [
-      {name: "По возрастанию", value: 'asc'},
-      {name: 'По убыванию', value: 'desc'}
-    ];
+    // Направления сортировки предоставляемые сервисом.
+    me.sortDirectionItems= searchService.sortOrderItems;
 
     // Пейджинг результатов поиска.
     me.getResultByPageNumber = function(pageNumber) {

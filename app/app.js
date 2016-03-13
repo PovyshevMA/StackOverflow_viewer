@@ -17,7 +17,9 @@
     $routeProvider.otherwise({redirectTo: '/search'});
   }])
 
+  // Сервис для работы с API stackoverflow.
   .factory('searchService', ['$http', '$q', function($http, $q){
+    // Общая функия для получения данных из сервиса.
     var _executeSearch = function (urlPostfix, query, tag, user, filter, pageNumber, sortDirection, sortBy) {
       var deferred = $q.defer();
       var params = {
@@ -50,24 +52,43 @@
     };
 
     return {
+      // Поиск вопросов по автору.
       searchByAuthor: function (searchString, pageNumber, sortDirection, sortBy){
         return _executeSearch("search/advanced", "", "", searchString, "", pageNumber, sortDirection, sortBy);
       },
 
+      // Поиск вопросов по тегу.
       searchByTag: function (searchString, pageNumber, sortDirection, sortBy){
         return _executeSearch("search/advanced", "", searchString, "","", pageNumber, sortDirection, sortBy);
       },
 
+      // Поиск вопросов по строке поиска.
       searchByQuery: function (searchString, pageNumber, sortDirection, sortBy){
         return _executeSearch("search/advanced", searchString, "", "", "", pageNumber, sortDirection, sortBy);
       },
 
+      // Получение детализации вопроса по ид.
       getQuestionById: function (questionId){
         return _executeSearch('questions/' + questionId, "", "", "", '!-*f(6rc.lFba', 1, 'desc','votes');
       },
 
+      // Получение ответов на вопрос вопрос по ид.
       getAnswersByQuestionId: function (questionId){
         return _executeSearch('questions/' + questionId + '/answers', "", "", "", '!9YdnSM64y', 1, 'desc','votes');
-      }
+      },
+
+      // Типы сортировки.
+      sortOrderItems: [
+        {name: "По рейтингу", value: 'relevance'},
+        {name: 'По количеству голосов', value: 'votes'},
+        {name: 'По дате создания', value: 'creation'},
+        {name: 'По количеству просмотров', value: 'activity'}
+      ],
+
+      // Направления сортировки.
+      sortDirectionItems: [
+        {name: "По возрастанию", value: 'asc'},
+        {name: 'По убыванию', value: 'desc'}
+      ]
     };
   }]);

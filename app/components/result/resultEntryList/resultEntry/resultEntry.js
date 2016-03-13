@@ -1,5 +1,6 @@
   'use strict';
 
+  // Компонента реализующая отдельный элемент таблицы результатов поиска.
   angular.module('app.result').component('resultEntry', {
     templateUrl: 'components/result/resultEntryList/resultEntry/resultEntry.html',
     controller: ResultEntryController,

@@ -26,6 +26,7 @@
       });
     });
 
+    // Открытие дополнительной таблицы с деьализацией по автору или тегу.
     me.detailsBy = function(type, title, value) {
       var searchFunction = searchService.searchByTag;
 
