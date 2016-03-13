@@ -46,12 +46,6 @@
         deferred.reject(message);
       });
 
-/*      $http.get('data/questions.json').success(function(data) {
-        deferred.resolve(data);
-      }).error(function(message){
-        deferred.reject(message);
-      });*/
-
       return deferred.promise;
     };
 
