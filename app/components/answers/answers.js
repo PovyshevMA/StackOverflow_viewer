@@ -47,6 +47,7 @@
         filter: '!-*f(6rc.lFba'
       };
 
+/*
       $http.get('http://api.stackexchange.com/2.2/questions/' + questionId, {params : params}).success(function(data) {
         if (data.items.length > 0)
           deferred.resolve(data.items[0]);
@@ -55,12 +56,12 @@
       }).error(function(message){
         deferred.reject(message);
       });
-   /*   $http.get('data/question.json').success(function(data) {
+*/
+      $http.get('data/question.json').success(function(data) {
         deferred.resolve(data.items[0]);
       }).error(function(message){
         deferred.reject(message);
       });
-*/
       return deferred.promise;
     };
 
@@ -77,16 +78,18 @@
         filter: '!9YdnSM64y'
       };
 
+/*
       $http.get('http://api.stackexchange.com/2.2/questions/' + questionId + '/answers', {params : params}).success(function(data) {
         deferred.resolve(data);
       }).error(function(message){
         deferred.reject(message);
       });
-     /* $http.get('data/answers.json').success(function(data) {
+*/
+      $http.get('data/answers.json').success(function(data) {
         deferred.resolve(data);
       }).error(function(message){
         deferred.reject(message);
-      });*/
+      });
 
       return deferred.promise;
     };
