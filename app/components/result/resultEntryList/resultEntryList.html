@@ -3,11 +3,6 @@
     Результаты по запросу {{$ctrl.searchResult.title}}
   </h3>
 
-  <ul class="dropdown-menu">
-    <li ng-repeat="choice in choices"
-        ng-click="setChoiceIndex($index);$parent.open =!$parent.open">
-      <a href="#">{{choice}}</a></li>
-  </ul>
   <div ng-show="$ctrl.searchResult.isSuccess" class="row sorting-panel">
     <select ng-model="sortDirection" ng-change="$ctrl.sortResults(sortOrder, sortDirection, $ctrl.searchResult)"  class="form-control input-sm sorting-panel__item"
             ng-options="item.value as item.name for item in $ctrl.sortDirectionItems"></select>
